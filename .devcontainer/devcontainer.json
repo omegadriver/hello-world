@@ -1,0 +1,26 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "TypeScript + Angular",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "Angular.ng-template"
+      ],
+      "settings": {
+        "editor.formatOnSave": true
+      }
+    }
+  },
+
+  "containerEnv": {
+    "NG_CLI_ANALYTICS": "false"
+  },
+
+  "forwardPorts": [4200],
+
+  "postCreateCommand": "npm install -g npm@latest @angular/cli@latest && if [ -f package.json ]; then npm install; fi",
+  "remoteUser": "node"
+}
